@@ -13,7 +13,22 @@ Matt Pocock 氏の [mattpocock/skills](https://github.com/mattpocock/skills) を
 
 `triage` スキルは未導入のため、本家 `setup-matt-pocock-skills` の仕様どおり `docs/agents/triage-labels.md` は作成していません。
 
-## 使い方
+## 使い方（迷ったらこれだけ）
+
+```
+/next-step
+```
+
+いまどこにいて、次に何を打てばいいかを1つだけ提示します。コマンドを覚える必要はありません。
+「〇〇を作りたい」と伝えるだけでも、実装前に自動でナビゲーションが入ります。
+
+### ナビゲーションの仕組み
+
+- `.claude/skills/next-step/`: 現在地を診断し、次の1コマンドを提示するリポジトリ独自スキル（本家スキルとは別物）
+- `.claude/settings.json`: セッション開始時に `docs/agents/flow-map.md` を読み込む `SessionStart` フック
+- `docs/agents/flow-map.md`: 「フロー未経由の実装依頼は `next-step` を先に通す」という行動規則
+
+### フロー全体
 
 フローは [AGENTS.md](./AGENTS.md) の「Development flow」を参照してください。
 
