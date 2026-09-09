@@ -21,11 +21,11 @@ Matt Pocock 氏の [mattpocock/skills](https://github.com/mattpocock/skills) を
 | `f` | 環境を破棄しても大丈夫な状態まで片づけ、終了して良いかを報告します |
 | `/next-step` | いまどこにいて、次に何を打てばいいかを1つだけ提示します |
 
-いまどこにいて、次に何を打てばいいかを1つだけ提示します。コマンドを覚える必要はありません。
-「〇〇を作りたい」と伝えるだけでも、実装前に自動でナビゲーションが入ります。
+コマンドを覚える必要はありません。「〇〇を作りたい」と伝えるだけでも、実装前に自動で案内が入ります。
 
-### ナビゲーションの仕組み
+### 仕組み
 
+- `.claude/skills/s/`, `.claude/skills/f/`: セッションの開始と終了の儀式（リポジトリ独自スキル）
 - `.claude/skills/next-step/`: 現在地を診断し、次の1コマンドを提示するリポジトリ独自スキル（本家スキルとは別物）
 - `.claude/settings.json`: セッション開始時に `docs/agents/flow-map.md` を読み込む `SessionStart` フック
 - `docs/agents/flow-map.md`: 「フロー未経由の実装依頼は `next-step` を先に通す」という行動規則
