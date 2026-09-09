@@ -27,7 +27,7 @@ Matt Pocock 氏の [mattpocock/skills](https://github.com/mattpocock/skills) を
 - `.claude/skills/next-step/`: 現在地を診断し、次の1コマンドを提示するリポジトリ独自スキル（本家スキルとは別物）
 - `.claude/settings.json`: セッション開始時に `docs/agents/flow-map.md` を読み込む `SessionStart` フック
 - `docs/agents/flow-map.md`: 「フロー未経由の実装依頼は `next-step` を先に通す」という行動規則
-- `docs/agents/handover.md`: セッションをまたぐ引き継ぎメモ（決めたこと／次にやること／未解決の問題）。区切りごとに自動で追記され、会話開始時に直近2件が読み込まれます
+- `docs/agents/handover.md`: セッションをまたぐ引き継ぎメモ（決めたこと／次にやること／未解決の問題）。区切りごとに自動で追記され、会話開始時に直近の数件が読み込まれます
 
 ### フロー全体
 

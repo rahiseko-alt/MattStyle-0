@@ -5,11 +5,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "cat \"$CLAUDE_PROJECT_DIR/docs/agents/flow-map.md\""
-          },
-          {
-            "type": "command",
-            "command": "sh \"$CLAUDE_PROJECT_DIR/.claude/hooks/read-handover.sh\""
+            "command": "sh \"${CLAUDE_PROJECT_DIR:-.}/.claude/hooks/session-start.sh\""
           }
         ]
       }
