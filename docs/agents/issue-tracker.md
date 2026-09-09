@@ -1,8 +1,29 @@
 # Issue tracker: GitHub
 
-Issues and specs for this repo live as GitHub issues. Use the `gh` CLI for all operations.
+Issues and specs for this repo live as GitHub issues.
 
-## Conventions
+## First: check which access you have
+
+**Run `command -v gh` before using any command on this page.**
+
+Some environments (Claude Code on the web, for one) have no `gh` CLI. There, GitHub is
+reachable through the GitHub MCP tools (`mcp__github__*`) instead; load them with
+`ToolSearch` before use. Every `gh` command below has an equivalent:
+
+| Operation | With `gh` | Without `gh` |
+| --- | --- | --- |
+| Create an issue | `gh issue create` | `mcp__github__issue_write` (method `create`) |
+| Read an issue | `gh issue view <n> --comments` | `mcp__github__issue_read` |
+| List issues | `gh issue list` | `mcp__github__list_issues` / `mcp__github__search_issues` |
+| Comment | `gh issue comment <n>` | `mcp__github__add_issue_comment` |
+| Label / close | `gh issue edit` / `gh issue close` | `mcp__github__issue_write` (method `update`) |
+| Sub-issues | `gh api` sub-issues endpoint | `mcp__github__sub_issue_write` |
+| Read a PR | `gh pr view <n>` | `mcp__github__pull_request_read` |
+| Create a PR | `gh pr create` | `mcp__github__create_pull_request` |
+
+Never report the tracker as unreachable because `gh` is missing: fall back to the tools above.
+
+## Conventions (`gh` wording; use the table above when `gh` is absent)
 
 - **Create an issue**: `gh issue create --title "..." --body "..."`. Use a heredoc for multi-line bodies.
 - **Read an issue**: `gh issue view <number> --comments`, filtering comments by `jq` and also fetching labels.
