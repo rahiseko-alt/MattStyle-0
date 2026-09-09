@@ -12,6 +12,14 @@ Issues and specs live as GitHub issues in this repo, via the `gh` CLI. See `docs
 
 Single-context: `CONTEXT.md` at the repo root, ADRs in `docs/adr/`. Both are created lazily by `domain-modeling`. See `docs/agents/domain.md`.
 
+## Navigation (repo-local)
+
+This repo may be driven by a non-engineer. Never assume the user knows which slash command to run.
+
+- The `next-step` skill (`.claude/skills/next-step/`, repo-local, not from mattpocock/skills) diagnoses where the work currently stands and proposes exactly one command to run next.
+- A `SessionStart` hook in `.claude/settings.json` loads `docs/agents/flow-map.md` into context at the start of every session.
+- Before writing implementation code for a request that has not been through the flow, run `next-step` first. Skip it only if the user explicitly says to go straight to code.
+
 ## Development flow
 
 ### Starting new work, before a codebase exists
